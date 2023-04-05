@@ -3,7 +3,7 @@ package cscd212classes.lab2;
 import java.util.Objects;
 
 public class Television implements Comparable<Television>{
-    private final boolean fourK;
+    //private final boolean fourK;
     private final String make;
     private final String model;
     private final int resolution;
