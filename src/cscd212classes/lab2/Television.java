@@ -3,25 +3,30 @@ package cscd212classes.lab2;
 import java.util.Objects;
 
 public class Television implements Comparable<Television>{
-    //private final boolean fourK;
+    private final boolean fourK;
     private final String make;
     private final String model;
     private final int resolution;
     private final int screenSize;
     private final boolean smart;
 
-    public Television(String make, String model, int resolution, int screenSize, boolean smart) {
+    public Television(final String make, final String model, final int resolution, final int screenSize, final boolean smart) throws IllegalArgumentException {
+        if (make == null || make.isEmpty() || model == null || model.isEmpty() || screenSize < 32 || resolution < 720) {
+            throw new IllegalArgumentException("Bad Params. Pls go buy a better TV. I hear Costco has some good deals right now...");
+        }
         this.make = make;
         this.model = model;
         this.resolution = resolution;
         this.screenSize = screenSize;
         this.smart = smart;
+        this.fourK = (resolution == 2160);
     }
 
-    public Television(String make, String model, boolean smart, int screenSize, int resolution) {
+    public Television(final String make, final String model, final boolean smart, final int screenSize, final int resolution) {
         this.make = make;
         this.model = model;
         this.resolution = resolution;
+        this.fourK = (resolution == 2160);
         this.screenSize = screenSize;
         this.smart = smart;
     }
