@@ -69,11 +69,14 @@ public class Television implements Comparable<Television>{
     //edit toString to fit the docs
     @Override
     public String toString() {
+        String str = "";
+        String str1 = "";
         if (resolution == 2160) {
-            //do stuff
-        } else {
-            String str = "";
+            str = "smart";
         }
-        return make + "-" + model + ", " + screenSize + " ";
+        if (fourK) {
+            str1 = "4k";
+        }
+        return make + "-" + model + ", " + screenSize + " inch " + str + " tv with " + str1 + resolution + " resolution";
     }
 }
