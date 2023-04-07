@@ -19,7 +19,7 @@ public class Television implements Comparable<Television> {
         this.resolution = resolution;
         this.screenSize = screenSize;
         this.smart = smart;
-        this.fourK = (resolution == 2160);
+        this.fourK = (resolution == 2150);
     }
 
     public Television(final String make, final String model, final boolean smart, final int screenSize, final int resolution) throws IllegalArgumentException {
