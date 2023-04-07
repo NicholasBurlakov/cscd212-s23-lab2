@@ -2,7 +2,7 @@ package cscd212classes.lab2;
 
 import java.util.Objects;
 
-public class Television implements Comparable<Television>{
+public class Television implements Comparable<Television> {
     private final boolean fourK;
     private final String make;
     private final String model;
@@ -22,7 +22,7 @@ public class Television implements Comparable<Television>{
         this.fourK = (resolution == 2160);
     }
 
-    public Television(final String make, final String model, final boolean smart, final int screenSize, final int resolution) throws IllegalArgumentException{
+    public Television(final String make, final String model, final boolean smart, final int screenSize, final int resolution) throws IllegalArgumentException {
         if (make == null || make.isEmpty() || model == null || model.isEmpty() || screenSize < 32 || resolution < 720) {
             throw new IllegalArgumentException("Invalid parameter in constructor");
         }
@@ -35,27 +35,27 @@ public class Television implements Comparable<Television>{
     }
 
     public String getMake() {
-        return make;
+        return this.make;
     }
 
     public String getModel() {
-        return model;
+        return this.model;
     }
 
     public int getResolution() {
-        return resolution;
+        return this.resolution;
     }
 
     public int getScreenSize() {
-        return screenSize;
+        return this.screenSize;
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(final Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Television that = (Television) o;
-        return fourK == that.fourK && resolution == that.resolution && screenSize == that.screenSize && smart == that.smart && Objects.equals(make, that.make) && Objects.equals(model, that.model);
+        return this.fourK == that.fourK && this.resolution == that.resolution && this.screenSize == that.screenSize && this.smart == that.smart && Objects.equals(this.make, that.make) && Objects.equals(this.model, that.model);
     }
 
     @Override
@@ -66,20 +66,10 @@ public class Television implements Comparable<Television>{
     //edit toString to fit the docs
     @Override
     public String toString() {
-        String str = "";
-        String str1 = "";
-        if (resolution == 2160) {
-            str = " smart";
-        }
-        if (fourK) {
-            str1 = "4k";
-        } else {
-            str1 = String.valueOf(resolution);
-        }
-        return make + "-" + model + ", " + screenSize + " inch" + str + " tv with " + str1 + " resolution";
+        return this.make + "-" + this.model + ", " + this.screenSize + " inch" + (this.smart ? " smart" : "") + " tv with " + (this.fourK ? "4K" : this.resolution) + " resolution";
     }
     @Override
-    public int compareTo(Television another) throws IllegalArgumentException {
+    public int compareTo(final Television another) throws IllegalArgumentException {
         if (another == null) {
             throw new IllegalArgumentException("null parameter in the compareTo method");
         }
